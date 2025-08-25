@@ -327,9 +327,80 @@
         .notification.show {
             transform: translateX(0);
         }
+        
+        .activation-help {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activation-help h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <div class="activation-help">
+        <h2><i class="fas fa-envelope"></i> Activación Requerida</h2>
+        <p>Para recibir las respuestas en <strong>jcalderont@alicorp.com.pe</strong>, necesitas activar el formulario:</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Revisa tu correo</h3>
+                <p>Busca un email de FormSubmit con el asunto "Activate your form"</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Haz clic en el enlace</h3>
+                <p>En el email, haz clic en "Activate Form"</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>¡Listo!</h3>
+                <p>Tu formulario quedará activado y comenzarás a recibir respuestas</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>¿No encuentras el email?</h3>
+                <p>Revisa la carpeta de SPAM o solicita otro email de activación haciendo clic <a href="https://formsubmit.co/confirm/jcalderont@alicorp.com.pe" target="_blank">aquí</a></p>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">HACKATON 2025</div>

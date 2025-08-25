@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - Hyperhon 2023</title>
+    <title>Registro - HACKATON 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #3498db;
@@ -331,7 +332,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">HYPERHON</div>
+            <div class="logo">HACKATON 2025</div>
             <h1>Registro de Participantes</h1>
             <p class="subtitle">Complete el siguiente formulario para inscribirse en la competencia</p>
         </header>
@@ -341,31 +342,31 @@
                 <h2>📅 Cronograma del Evento</h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-date">01 de setiembre - 29 de setiembre</div>
-                        <h3>Registro de participantes</h3>
-                        <p>Todos los participantes pueden registrarse a sí mismos y a sus equipos durante estas semanas en el formulario.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">02 de octubre - 05 de octubre</div>
-                        <h3>Confirmación de participación</h3>
-                        <p>Los participantes seleccionados recibirán un correo electrónico de confirmación.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">06 de octubre</div>
+                        <div class="timeline-date">28 de agosto</div>
                         <h3>Sesión de apertura</h3>
                         <p>El equipo organizador brindará información general sobre el evento.</p>
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">09 de octubre - 17 de octubre</div>
+                        <div class="timeline-date">01 al 04 de septiembre</div>
+                        <h3>Registro de participantes</h3>
+                        <p>Todos los participantes pueden registrarse a sí mismos y a sus equipos durante estos días.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">05 al 09 de septiembre</div>
+                        <h3>Confirmación de participación</h3>
+                        <p>Los participantes seleccionados recibirán un correo electrónico de confirmación.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">10 al 12 de septiembre</div>
                         <h3>Mentorías de negocio y técnicas</h3>
                         <p>Sesiones de mentoría para robustecer la estrategia del proyecto.</p>
                     </div>
                     
                     <div class="timeline-item">
-                        <div class="timeline-date">20 de octubre</div>
+                        <div class="timeline-date">17 de septiembre</div>
                         <h3>Evento Principal y Entrega de premios</h3>
                         <p>Los semifinalistas deberán exponer la solución y se elegirá a los ganadores.</p>
                     </div>
@@ -376,45 +377,41 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <form id="registrationForm">
+                    <!-- FormSubmit integrado con tu correo -->
+                    <form action="https://formsubmit.co/jcalderont@alicorp.com.pe" method="POST">
+                        <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        
                         <div class="form-group">
                             <label for="fullName">Nombre completo <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" id="fullName" name="Nombre completo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Correo electrónico <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Correo electrónico" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Teléfono de contacto <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="Teléfono" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="document">Número de documento de identidad <span class="required">*</span></label>
-                            <input type="text" id="document" name="document" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="university">Universidad o Institución <span class="required">*</span></label>
-                            <input type="text" id="university" name="university" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="career">Carrera que estudia <span class="required">*</span></label>
-                            <input type="text" id="career" name="career" required>
+                            <input type="text" id="document" name="Documento de identidad" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamName">Nombre del equipo <span class="required">*</span></label>
-                            <input type="text" id="teamName" name="teamName" required>
+                            <input type="text" id="teamName" name="Nombre del equipo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamSize">Número de integrantes (incluyéndote) <span class="required">*</span></label>
-                            <select id="teamSize" name="teamSize" required>
+                            <select id="teamSize" name="Número de integrantes" required>
                                 <option value="">Seleccione la cantidad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -428,9 +425,9 @@
                             <label>Integrantes del equipo</label>
                             <div id="teamMembers" class="team-members">
                                 <div class="member">
-                                    <input type="text" placeholder="Nombre completo" required>
-                                    <input type="email" placeholder="Correo electrónico" required>
-                                    <input type="tel" placeholder="Teléfono">
+                                    <input type="text" placeholder="Nombre completo" name="Integrante 1 Nombre" required>
+                                    <input type="email" placeholder="Correo electrónico" name="Integrante 1 Email" required>
+                                    <input type="tel" placeholder="Teléfono" name="Integrante 1 Teléfono">
                                     <button type="button" class="btn btn-remove">Eliminar</button>
                                 </div>
                             </div>
@@ -440,21 +437,21 @@
                         
                         <div class="form-group">
                             <label for="experience">Describe brevemente tu experiencia en hackathones o competencias similares</label>
-                            <textarea id="experience" name="experience" rows="4"></textarea>
+                            <textarea id="experience" name="Experiencia" rows="4"></textarea>
                         </div>
                         
                         <div class="form-group">
                             <label for="skills">Habilidades técnicas principales de tu equipo</label>
-                            <textarea id="skills" name="skills" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
+                            <textarea id="skills" name="Habilidades técnicas" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="terms" required>
+                            <input type="checkbox" id="terms" name="Acepta términos" required>
                             <label for="terms">Acepto los términos y condiciones del evento <span class="required">*</span></label>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <input type="checkbox" id="privacy" name="Acepta privacidad" required>
                             <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos <span class="required">*</span></label>
                         </div>
                         
@@ -465,7 +462,7 @@
         </div>
         
         <footer>
-            <p>Hyperhon 2023 - Todos los derechos reservados</p>
+            <p>HACKATON 2025 - Todos los derechos reservados</p>
         </footer>
     </div>
 
@@ -479,6 +476,7 @@
             const teamMembersContainer = document.getElementById('teamMembers');
             const addMemberButton = document.getElementById('addMember');
             const notification = document.getElementById('notification');
+            let memberCount = 1;
             
             // Función para actualizar los campos de integrantes según la selección
             teamSizeSelect.addEventListener('change', function() {
@@ -494,10 +492,12 @@
                     // Eliminar miembros extras
                     while (teamMembersContainer.querySelectorAll('.member').length > teamSize - 1) {
                         teamMembersContainer.lastElementChild.remove();
+                        memberCount--;
                     }
                 } else {
                     // Eliminar todos los miembros si el equipo es de 1 persona
                     teamMembersContainer.innerHTML = '';
+                    memberCount = 1;
                 }
             });
             
@@ -507,12 +507,13 @@
             });
             
             function addMemberField() {
+                memberCount++;
                 const memberDiv = document.createElement('div');
                 memberDiv.className = 'member';
                 memberDiv.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" required>
-                    <input type="email" placeholder="Correo electrónico" required>
-                    <input type="tel" placeholder="Teléfono">
+                    <input type="text" placeholder="Nombre completo" name="Integrante ${memberCount} Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" name="Integrante ${memberCount} Email" required>
+                    <input type="tel" placeholder="Teléfono" name="Integrante ${memberCount} Teléfono">
                     <button type="button" class="btn btn-remove">Eliminar</button>
                 `;
                 
@@ -522,13 +523,20 @@
                 const removeButton = memberDiv.querySelector('.btn-remove');
                 removeButton.addEventListener('click', function() {
                     memberDiv.remove();
+                    memberCount--;
                 });
             }
             
+            // Añadir evento a los botones de eliminar existentes
+            document.querySelectorAll('.btn-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.parentElement.remove();
+                    memberCount--;
+                });
+            });
+            
             // Manejar el envío del formulario
-            document.getElementById('registrationForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
+            document.querySelector('form').addEventListener('submit', function(e) {
                 // Mostrar notificación
                 notification.classList.add('show');
                 
@@ -536,18 +544,6 @@
                 setTimeout(function() {
                     notification.classList.remove('show');
                 }, 5000);
-                
-                // Aquí normalmente se enviarían los datos a un servidor
-                // Por ahora, solo reiniciamos el formulario
-                this.reset();
-                teamMembersContainer.innerHTML = '';
-            });
-            
-            // Añadir evento a los botones de eliminar existentes
-            document.querySelectorAll('.btn-remove').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.parentElement.remove();
-                });
             });
         });
     </script>

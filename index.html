@@ -328,52 +328,47 @@
             transform: translateX(0);
         }
         
-        .free-alternative {
+        .google-forms-alternative {
             background: white;
             padding: 20px;
             border-radius: 10px;
             margin: 20px auto;
             max-width: 1000px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         
-        .free-alternative h2 {
+        .google-forms-alternative h2 {
             color: var(--secondary);
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
         
-        .option {
-            background: var(--light);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--primary);
+        .google-forms-alternative a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
         }
         
-        .option h3 {
-            color: var(--secondary);
-            margin-bottom: 10px;
+        .google-forms-alternative a:hover {
+            background: #2980b9;
         }
     </style>
 </head>
 <body>
-    <div class="free-alternative">
-        <h2><i class="fas fa-dollar-sign"></i> Solución 100% Gratuita</h2>
-        <div class="option">
-            <h3><i class="fab fa-google"></i> Google Forms + Google Sheets</h3>
-            <p>La mejor opción gratuita: crea un formulario en Google Forms y todas las respuestas se guardarán automáticamente en una hoja de cálculo de Google Sheets.</p>
-            <p><strong>Ventajas:</strong></p>
-            <ul>
-                <li>Almacenamiento ilimitado y gratuito</li>
-                <li>Fácil exportación de datos</li>
-                <li>Acceso desde cualquier dispositivo</li>
-                <li>Análisis integrado de respuestas</li>
-            </ul>
-            <p><a href="https://forms.google.com" target="_blank">Crear formulario en Google Forms</a></p>
-        </div>
+    <div class="google-forms-alternative">
+        <h2><i class="fab fa-google"></i> Solución Recomendada: Google Forms</h2>
+        <p>Para garantizar que recibas todas las respuestas sin problemas, te recomendamos usar Google Forms.</p>
+        <p>Es 100% gratuito, confiable y todas las respuestas se guardan automáticamente en una hoja de cálculo.</p>
+        <a href="https://forms.google.com" target="_blank">Crear formulario en Google Forms</a>
     </div>
 
     <div class="container">
@@ -423,7 +418,7 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <!-- FORMULARIO CON FORMSUBMIT (GRATIS) -->
+                    <!-- FORMULARIO CON FORMSUBMIT (con tu nuevo correo) -->
                     <form action="https://formsubmit.co/hackaton2025_coe@hotmail.com" method="POST">
                         <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
                         <input type="hidden" name="_template" value="table">
@@ -594,5 +589,4 @@
         });
     </script>
 </body>
-
 </html>

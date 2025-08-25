@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - HACKATON 2025</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("user_your_user_id_here"); // Necesitarás registrarte en EmailJS
+        })();
+    </script>
     <style>
         :root {
             --primary: #3498db;
@@ -328,7 +334,11 @@
             transform: translateX(0);
         }
         
-        .activation-help {
+        .notification.error {
+            background: var(--accent);
+        }
+        
+        .solution-section {
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -337,7 +347,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .activation-help h2 {
+        .solution-section h2 {
             color: var(--secondary);
             margin-bottom: 15px;
             display: flex;
@@ -345,18 +355,35 @@
             gap: 10px;
         }
         
-        .steps {
+        .solutions {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
         }
         
-        .step {
+        .solution {
             flex: 1;
             min-width: 300px;
             background: var(--light);
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .solution h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .solution-google {
+            border-left-color: #34A853;
+        }
+        
+        .solution-formspree {
+            border-left-color: #3B82F6;
         }
         
         .step-number {
@@ -371,32 +398,45 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
+        
+        .solution-google .step-number {
+            background: #34A853;
+        }
+        
+        .solution-formspree .step-number {
+            background: #3B82F6;
+        }
     </style>
 </head>
 <body>
-    <div class="activation-help">
-        <h2><i class="fas fa-envelope"></i> Activación Requerida</h2>
-        <p>Para recibir las respuestas en <strong>jcalderont@alicorp.com.pe</strong>, necesitas activar el formulario:</p>
-        <div class="steps">
-            <div class="step">
+    <div class="solution-section">
+        <h2><i class="fas fa-exclamation-triangle"></i> Solución Alternativa</h2>
+        <p>Como FormSubmit no está funcionando correctamente, te recomiendo estas alternativas:</p>
+        <div class="solutions">
+            <div class="solution solution-google">
+                <h3><i class="fab fa-google"></i> Google Forms</h3>
+                <p><strong>La opción más confiable</strong></p>
                 <div class="step-number">1</div>
-                <h3>Revisa tu correo</h3>
-                <p>Busca un email de FormSubmit con el asunto "Activate your form"</p>
-            </div>
-            <div class="step">
+                <p>Ve a <a href="https://forms.google.com" target="_blank">forms.google.com</a></p>
                 <div class="step-number">2</div>
-                <h3>Haz clic en el enlace</h3>
-                <p>En el email, haz clic en "Activate Form"</p>
-            </div>
-            <div class="step">
+                <p>Crea un formulario con campos similares</p>
                 <div class="step-number">3</div>
-                <h3>¡Listo!</h3>
-                <p>Tu formulario quedará activado y comenzarás a recibir respuestas</p>
-            </div>
-            <div class="step">
+                <p>Reemplaza tu formulario con el iframe de Google</p>
                 <div class="step-number">4</div>
-                <h3>¿No encuentras el email?</h3>
-                <p>Revisa la carpeta de SPAM o solicita otro email de activación haciendo clic <a href="https://formsubmit.co/confirm/jcalderont@alicorp.com.pe" target="_blank">aquí</a></p>
+                <p>Las respuestas se guardarán en una hoja de cálculo</p>
+            </div>
+            
+            <div class="solution solution-formspree">
+                <h3><i class="fas fa-paper-plane"></i> Formspree</h3>
+                <p><strong>Alternativa similar a FormSubmit</strong></p>
+                <div class="step-number">1</div>
+                <p>Regístrate en <a href="https://formspree.io/" target="_blank">formspree.io</a></p>
+                <div class="step-number">2</div>
+                <p>Crea un nuevo formulario y obtén tu endpoint</p>
+                <div class="step-number">3</div>
+                <p>Reemplaza el "action" del formulario con tu endpoint</p>
+                <div class="step-number">4</div>
+                <p>Las respuestas llegarán a tu email</p>
             </div>
         </div>
     </div>
@@ -448,41 +488,39 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <!-- FormSubmit integrado con tu correo -->
-                    <form action="https://formsubmit.co/jcalderont@alicorp.com.pe" method="POST">
+                    <!-- FORMULARIO CON FORMSPREE (SOLUCIÓN ALTERNATIVA) -->
+                    <!-- Reemplaza "TU_ENDPOINT_AQUI" con el endpoint de Formspree -->
+                    <form action="https://formspree.io/f/TU_ENDPOINT_AQUI" method="POST">
                         <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="false">
                         
                         <div class="form-group">
                             <label for="fullName">Nombre completo <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="Nombre completo" required>
+                            <input type="text" id="fullName" name="name" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Correo electrónico <span class="required">*</span></label>
-                            <input type="email" id="email" name="Correo electrónico" required>
+                            <input type="email" id="email" name="email" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Teléfono de contacto <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="Teléfono" required>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="document">Número de documento de identidad <span class="required">*</span></label>
-                            <input type="text" id="document" name="Documento de identidad" required>
+                            <input type="text" id="document" name="document" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamName">Nombre del equipo <span class="required">*</span></label>
-                            <input type="text" id="teamName" name="Nombre del equipo" required>
+                            <input type="text" id="teamName" name="team" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamSize">Número de integrantes (incluyéndote) <span class="required">*</span></label>
-                            <select id="teamSize" name="Número de integrantes" required>
+                            <select id="teamSize" name="teamSize" required>
                                 <option value="">Seleccione la cantidad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -496,9 +534,9 @@
                             <label>Integrantes del equipo</label>
                             <div id="teamMembers" class="team-members">
                                 <div class="member">
-                                    <input type="text" placeholder="Nombre completo" name="Integrante 1 Nombre" required>
-                                    <input type="email" placeholder="Correo electrónico" name="Integrante 1 Email" required>
-                                    <input type="tel" placeholder="Teléfono" name="Integrante 1 Teléfono">
+                                    <input type="text" placeholder="Nombre completo" name="member1_name" required>
+                                    <input type="email" placeholder="Correo electrónico" name="member1_email" required>
+                                    <input type="tel" placeholder="Teléfono" name="member1_phone">
                                     <button type="button" class="btn btn-remove">Eliminar</button>
                                 </div>
                             </div>
@@ -508,21 +546,21 @@
                         
                         <div class="form-group">
                             <label for="experience">Describe brevemente tu experiencia en hackathones o competencias similares</label>
-                            <textarea id="experience" name="Experiencia" rows="4"></textarea>
+                            <textarea id="experience" name="experience" rows="4"></textarea>
                         </div>
                         
                         <div class="form-group">
                             <label for="skills">Habilidades técnicas principales de tu equipo</label>
-                            <textarea id="skills" name="Habilidades técnicas" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
+                            <textarea id="skills" name="skills" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="Acepta términos" required>
+                            <input type="checkbox" id="terms" name="terms" required>
                             <label for="terms">Acepto los términos y condiciones del evento <span class="required">*</span></label>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="privacy" name="Acepta privacidad" required>
+                            <input type="checkbox" id="privacy" name="privacy" required>
                             <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos <span class="required">*</span></label>
                         </div>
                         
@@ -582,9 +620,9 @@
                 const memberDiv = document.createElement('div');
                 memberDiv.className = 'member';
                 memberDiv.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" name="Integrante ${memberCount} Nombre" required>
-                    <input type="email" placeholder="Correo electrónico" name="Integrante ${memberCount} Email" required>
-                    <input type="tel" placeholder="Teléfono" name="Integrante ${memberCount} Teléfono">
+                    <input type="text" placeholder="Nombre completo" name="member${memberCount}_name" required>
+                    <input type="email" placeholder="Correo electrónico" name="member${memberCount}_email" required>
+                    <input type="tel" placeholder="Teléfono" name="member${memberCount}_phone">
                     <button type="button" class="btn btn-remove">Eliminar</button>
                 `;
                 

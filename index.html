@@ -327,9 +327,55 @@
         .notification.show {
             transform: translateX(0);
         }
+        
+        .free-alternative {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .free-alternative h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .option {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .option h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="free-alternative">
+        <h2><i class="fas fa-dollar-sign"></i> Solución 100% Gratuita</h2>
+        <div class="option">
+            <h3><i class="fab fa-google"></i> Google Forms + Google Sheets</h3>
+            <p>La mejor opción gratuita: crea un formulario en Google Forms y todas las respuestas se guardarán automáticamente en una hoja de cálculo de Google Sheets.</p>
+            <p><strong>Ventajas:</strong></p>
+            <ul>
+                <li>Almacenamiento ilimitado y gratuito</li>
+                <li>Fácil exportación de datos</li>
+                <li>Acceso desde cualquier dispositivo</li>
+                <li>Análisis integrado de respuestas</li>
+            </ul>
+            <p><a href="https://forms.google.com" target="_blank">Crear formulario en Google Forms</a></p>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">HACKATON 2025</div>
@@ -377,38 +423,41 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <!-- FORMULARIO CON FORMSPREE -->
-                    <form action="https://formspree.io/f/myzdyzyw" method="POST">
+                    <!-- FORMULARIO CON FORMSUBMIT (GRATIS) -->
+                    <form action="https://formsubmit.co/jcalderont@alicorp.com.pe" method="POST">
                         <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
                         
                         <div class="form-group">
                             <label for="fullName">Nombre completo <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="nombre" required>
+                            <input type="text" id="fullName" name="Nombre completo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Correo electrónico <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="Correo electrónico" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Teléfono de contacto <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="telefono" required>
+                            <input type="tel" id="phone" name="Teléfono" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="document">Número de documento de identidad <span class="required">*</span></label>
-                            <input type="text" id="document" name="documento" required>
+                            <input type="text" id="document" name="Documento de identidad" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamName">Nombre del equipo <span class="required">*</span></label>
-                            <input type="text" id="teamName" name="equipo" required>
+                            <input type="text" id="teamName" name="Nombre del equipo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamSize">Número de integrantes (incluyéndote) <span class="required">*</span></label>
-                            <select id="teamSize" name="integrantes" required>
+                            <select id="teamSize" name="Número de integrantes" required>
                                 <option value="">Seleccione la cantidad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -422,9 +471,9 @@
                             <label>Integrantes del equipo</label>
                             <div id="teamMembers" class="team-members">
                                 <div class="member">
-                                    <input type="text" placeholder="Nombre completo" name="integrante1_nombre" required>
-                                    <input type="email" placeholder="Correo electrónico" name="integrante1_email" required>
-                                    <input type="tel" placeholder="Teléfono" name="integrante1_telefono">
+                                    <input type="text" placeholder="Nombre completo" name="Integrante 1 Nombre" required>
+                                    <input type="email" placeholder="Correo electrónico" name="Integrante 1 Email" required>
+                                    <input type="tel" placeholder="Teléfono" name="Integrante 1 Teléfono">
                                     <button type="button" class="btn btn-remove">Eliminar</button>
                                 </div>
                             </div>
@@ -434,21 +483,21 @@
                         
                         <div class="form-group">
                             <label for="experience">Describe brevemente tu experiencia en hackathones o competencias similares</label>
-                            <textarea id="experience" name="experiencia" rows="4"></textarea>
+                            <textarea id="experience" name="Experiencia" rows="4"></textarea>
                         </div>
                         
                         <div class="form-group">
                             <label for="skills">Habilidades técnicas principales de tu equipo</label>
-                            <textarea id="skills" name="habilidades" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
+                            <textarea id="skills" name="Habilidades técnicas" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="terminos" required>
+                            <input type="checkbox" id="terms" name="Acepta términos" required>
                             <label for="terms">Acepto los términos y condiciones del evento <span class="required">*</span></label>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="privacy" name="privacidad" required>
+                            <input type="checkbox" id="privacy" name="Acepta privacidad" required>
                             <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos <span class="required">*</span></label>
                         </div>
                         
@@ -508,9 +557,9 @@
                 const memberDiv = document.createElement('div');
                 memberDiv.className = 'member';
                 memberDiv.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" name="integrante${memberCount}_nombre" required>
-                    <input type="email" placeholder="Correo electrónico" name="integrante${memberCount}_email" required>
-                    <input type="tel" placeholder="Teléfono" name="integrante${memberCount}_telefono">
+                    <input type="text" placeholder="Nombre completo" name="Integrante ${memberCount} Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" name="Integrante ${memberCount} Email" required>
+                    <input type="tel" placeholder="Teléfono" name="Integrante ${memberCount} Teléfono">
                     <button type="button" class="btn btn-remove">Eliminar</button>
                 `;
                 

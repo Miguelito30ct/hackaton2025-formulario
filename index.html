@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Hyperhon 2023</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        header {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-section {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light);
+            padding: 25px;
+        }
+        
+        .form-section {
+            flex: 2;
+            min-width: 400px;
+            padding: 25px;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .timeline-item {
+            background: white;
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .timeline-item h3 {
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-date::before {
+            content: "📅";
+            margin-right: 8px;
+        }
+        
+        .timeline-item p {
+            color: #555;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            left: -10px;
+            top: 20px;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-container h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-container h2::before {
+            content: "📋";
+            margin-right: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+        }
+        
+        .team-members {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border: 1px dashed #ddd;
+        }
+        
+        .member {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .member input {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-add {
+            background: var(--success);
+            margin-top: 10px;
+        }
+        
+        .btn-add::before {
+            content: "+";
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        
+        .btn-add:hover {
+            background: #27ae60;
+        }
+        
+        .btn-remove {
+            background: var(--accent);
+            padding: 8px 15px;
+        }
+        
+        .btn-remove::before {
+            content: "×";
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        
+        .btn-remove:hover {
+            background: #c0392b;
+        }
+        
+        .btn-submit {
+            background: var(--secondary);
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .btn-submit::before {
+            content: "✓";
+            margin-right: 10px;
+        }
+        
+        .btn-submit:hover {
+            background: #1a252f;
+        }
+        
+        .required {
+            color: var(--accent);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--secondary);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .timeline-section, .form-section {
+                min-width: 100%;
+            }
+            
+            .member {
+                flex-direction: column;
+            }
+            
+            .member input {
+                width: 100%;
+            }
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            background: var(--success);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">HYPERHON</div>
+            <h1>Registro de Participantes</h1>
+            <p class="subtitle">Complete el siguiente formulario para inscribirse en la competencia</p>
+        </header>
+        
+        <div class="content">
+            <div class="timeline-section">
+                <h2>📅 Cronograma del Evento</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">01 de setiembre - 29 de setiembre</div>
+                        <h3>Registro de participantes</h3>
+                        <p>Todos los participantes pueden registrarse a sí mismos y a sus equipos durante estas semanas en el formulario.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">02 de octubre - 05 de octubre</div>
+                        <h3>Confirmación de participación</h3>
+                        <p>Los participantes seleccionados recibirán un correo electrónico de confirmación.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">06 de octubre</div>
+                        <h3>Sesión de apertura</h3>
+                        <p>El equipo organizador brindará información general sobre el evento.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">09 de octubre - 17 de octubre</div>
+                        <h3>Mentorías de negocio y técnicas</h3>
+                        <p>Sesiones de mentoría para robustecer la estrategia del proyecto.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">20 de octubre</div>
+                        <h3>Evento Principal y Entrega de premios</h3>
+                        <p>Los semifinalistas deberán exponer la solución y se elegirá a los ganadores.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-container">
+                    <h2>Formulario de Registro</h2>
+                    
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label for="fullName">Nombre completo <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Teléfono de contacto <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="document">Número de documento de identidad <span class="required">*</span></label>
+                            <input type="text" id="document" name="document" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="university">Universidad o Institución <span class="required">*</span></label>
+                            <input type="text" id="university" name="university" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="career">Carrera que estudia <span class="required">*</span></label>
+                            <input type="text" id="career" name="career" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamName">Nombre del equipo <span class="required">*</span></label>
+                            <input type="text" id="teamName" name="teamName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamSize">Número de integrantes (incluyéndote) <span class="required">*</span></label>
+                            <select id="teamSize" name="teamSize" required>
+                                <option value="">Seleccione la cantidad</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Integrantes del equipo</label>
+                            <div id="teamMembers" class="team-members">
+                                <div class="member">
+                                    <input type="text" placeholder="Nombre completo" required>
+                                    <input type="email" placeholder="Correo electrónico" required>
+                                    <input type="tel" placeholder="Teléfono">
+                                    <button type="button" class="btn btn-remove">Eliminar</button>
+                                </div>
+                            </div>
+                            
+                            <button type="button" id="addMember" class="btn btn-add">Añadir integrante</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Describe brevemente tu experiencia en hackathones o competencias similares</label>
+                            <textarea id="experience" name="experience" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills">Habilidades técnicas principales de tu equipo</label>
+                            <textarea id="skills" name="skills" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Acepto los términos y condiciones del evento <span class="required">*</span></label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos <span class="required">*</span></label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">Enviar Registro</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Hyperhon 2023 - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification">
+        ¡Formulario enviado con éxito! Revisaremos tu información y te contactaremos pronto.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const teamSizeSelect = document.getElementById('teamSize');
+            const teamMembersContainer = document.getElementById('teamMembers');
+            const addMemberButton = document.getElementById('addMember');
+            const notification = document.getElementById('notification');
+            
+            // Función para actualizar los campos de integrantes según la selección
+            teamSizeSelect.addEventListener('change', function() {
+                const teamSize = parseInt(this.value);
+                const currentMembers = teamMembersContainer.querySelectorAll('.member').length;
+                
+                if (teamSize > 1) {
+                    // Añadir miembros si faltan
+                    for (let i = currentMembers; i < teamSize - 1; i++) {
+                        addMemberField();
+                    }
+                    
+                    // Eliminar miembros extras
+                    while (teamMembersContainer.querySelectorAll('.member').length > teamSize - 1) {
+                        teamMembersContainer.lastElementChild.remove();
+                    }
+                } else {
+                    // Eliminar todos los miembros si el equipo es de 1 persona
+                    teamMembersContainer.innerHTML = '';
+                }
+            });
+            
+            // Función para añadir un campo de integrante
+            addMemberButton.addEventListener('click', function() {
+                addMemberField();
+            });
+            
+            function addMemberField() {
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'member';
+                memberDiv.innerHTML = `
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <button type="button" class="btn btn-remove">Eliminar</button>
+                `;
+                
+                teamMembersContainer.appendChild(memberDiv);
+                
+                // Añadir evento al botón de eliminar
+                const removeButton = memberDiv.querySelector('.btn-remove');
+                removeButton.addEventListener('click', function() {
+                    memberDiv.remove();
+                });
+            }
+            
+            // Manejar el envío del formulario
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mostrar notificación
+                notification.classList.add('show');
+                
+                // Ocultar notificación después de 5 segundos
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                }, 5000);
+                
+                // Aquí normalmente se enviarían los datos a un servidor
+                // Por ahora, solo reiniciamos el formulario
+                this.reset();
+                teamMembersContainer.innerHTML = '';
+            });
+            
+            // Añadir evento a los botones de eliminar existentes
+            document.querySelectorAll('.btn-remove').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.parentElement.remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -327,9 +327,50 @@
         .notification.show {
             transform: translateX(0);
         }
+        
+        .google-forms-alternative {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .google-forms-alternative h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .google-forms-alternative a {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .google-forms-alternative a:hover {
+            background: #2980b9;
+        }
     </style>
 </head>
 <body>
+    <div class="google-forms-alternative">
+        <h2><i class="fab fa-google"></i> Solución Recomendada: Google Forms</h2>
+        <p>Para garantizar que recibas todas las respuestas sin problemas, te recomendamos usar Google Forms.</p>
+        <p>Es 100% gratuito, confiable y todas las respuestas se guardan automáticamente en una hoja de cálculo.</p>
+        <a href="https://forms.google.com" target="_blank">Crear formulario en Google Forms</a>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">HACKATON 2025</div>
@@ -377,7 +418,7 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <!-- FORMULARIO CON FORMSUBMIT -->
+                    <!-- FORMULARIO CON FORMSUBMIT (con tu nuevo correo) -->
                     <form action="https://formsubmit.co/hackaton2025_coe@hotmail.com" method="POST">
                         <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
                         <input type="hidden" name="_template" value="table">

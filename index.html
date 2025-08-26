@@ -163,7 +163,6 @@
         
         input[type="text"],
         input[type="email"],
-        input[type="tel"],
         select,
         textarea {
             width: 100%;
@@ -201,18 +200,6 @@
             border: 1px dashed #ddd;
         }
         
-        .member {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .member input {
-            flex: 1;
-            min-width: 200px;
-        }
-        
         .btn {
             background: var(--primary);
             color: white;
@@ -232,36 +219,6 @@
             background: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-add {
-            background: var(--success);
-            margin-top: 10px;
-        }
-        
-        .btn-add::before {
-            content: "+";
-            margin-right: 5px;
-            font-weight: bold;
-        }
-        
-        .btn-add:hover {
-            background: #27ae60;
-        }
-        
-        .btn-remove {
-            background: var(--accent);
-            padding: 8px 15px;
-        }
-        
-        .btn-remove::before {
-            content: "×";
-            margin-right: 5px;
-            font-weight: bold;
-        }
-        
-        .btn-remove:hover {
-            background: #c0392b;
         }
         
         .btn-submit {
@@ -301,14 +258,6 @@
             .timeline-section, .form-section {
                 min-width: 100%;
             }
-            
-            .member {
-                flex-direction: column;
-            }
-            
-            .member input {
-                width: 100%;
-            }
         }
         
         .notification {
@@ -334,6 +283,13 @@
         .notification i {
             margin-right: 10px;
             font-size: 20px;
+        }
+        
+        .info-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -403,16 +359,6 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Teléfono de contacto <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="Teléfono" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="document">Número de documento de identidad <span class="required">*</span></label>
-                            <input type="text" id="document" name="Documento de identidad" required>
-                        </div>
-                        
-                        <div class="form-group">
                             <label for="teamName">Nombre del equipo <span class="required">*</span></label>
                             <input type="text" id="teamName" name="Nombre del equipo" required>
                         </div>
@@ -430,17 +376,9 @@
                         </div>
                         
                         <div class="form-group">
-                            <label>Integrantes del equipo</label>
-                            <div id="teamMembers" class="team-members">
-                                <div class="member">
-                                    <input type="text" placeholder="Nombre completo" name="Integrante 1 Nombre" required>
-                                    <input type="email" placeholder="Correo electrónico" name="Integrante 1 Email" required>
-                                    <input type="tel" placeholder="Teléfono" name="Integrante 1 Teléfono">
-                                    <button type="button" class="btn btn-remove">Eliminar</button>
-                                </div>
-                            </div>
-                            
-                            <button type="button" id="addMember" class="btn btn-add">Añadir integrante</button>
+                            <label for="members">Integrantes del equipo (nombres completos) <span class="required">*</span></label>
+                            <textarea id="members" name="Integrantes del equipo" rows="3" placeholder="Ingrese los nombres completos de todos los integrantes separados por punto y coma (;)"></textarea>
+                            <p class="info-text">Ej: María González; Carlos Rodríguez; Laura Martínez</p>
                         </div>
                         
                         <div class="form-group">
@@ -481,68 +419,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const teamSizeSelect = document.getElementById('teamSize');
-            const teamMembersContainer = document.getElementById('teamMembers');
-            const addMemberButton = document.getElementById('addMember');
             const notification = document.getElementById('notification');
-            let memberCount = 1;
-            
-            // Función para actualizar los campos de integrantes según la selección
-            teamSizeSelect.addEventListener('change', function() {
-                const teamSize = parseInt(this.value);
-                const currentMembers = teamMembersContainer.querySelectorAll('.member').length;
-                
-                if (teamSize > 1) {
-                    // Añadir miembros si faltan
-                    for (let i = currentMembers; i < teamSize - 1; i++) {
-                        addMemberField();
-                    }
-                    
-                    // Eliminar miembros extras
-                    while (teamMembersContainer.querySelectorAll('.member').length > teamSize - 1) {
-                        teamMembersContainer.lastElementChild.remove();
-                        memberCount--;
-                    }
-                } else {
-                    // Eliminar todos los miembros si el equipo es de 1 persona
-                    teamMembersContainer.innerHTML = '';
-                    memberCount = 1;
-                }
-            });
-            
-            // Función para añadir un campo de integrante
-            addMemberButton.addEventListener('click', function() {
-                addMemberField();
-            });
-            
-            function addMemberField() {
-                memberCount++;
-                const memberDiv = document.createElement('div');
-                memberDiv.className = 'member';
-                memberDiv.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" name="Integrante ${memberCount} Nombre" required>
-                    <input type="email" placeholder="Correo electrónico" name="Integrante ${memberCount} Email" required>
-                    <input type="tel" placeholder="Teléfono" name="Integrante ${memberCount} Teléfono">
-                    <button type="button" class="btn btn-remove">Eliminar</button>
-                `;
-                
-                teamMembersContainer.appendChild(memberDiv);
-                
-                // Añadir evento al botón de eliminar
-                const removeButton = memberDiv.querySelector('.btn-remove');
-                removeButton.addEventListener('click', function() {
-                    memberDiv.remove();
-                    memberCount--;
-                });
-            }
-            
-            // Añadir evento a los botones de eliminar existentes
-            document.querySelectorAll('.btn-remove').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.parentElement.remove();
-                    memberCount--;
-                });
-            });
             
             // Manejar el envío del formulario
             document.querySelector('form').addEventListener('submit', function(e) {

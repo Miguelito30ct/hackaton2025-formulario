@@ -13,7 +13,6 @@
             --light: #ecf0f1;
             --success: #2ecc71;
             --warning: #f39c12;
-            --ms-blue: #0078d4;
         }
         
         * {
@@ -328,70 +327,9 @@
         .notification.show {
             transform: translateX(0);
         }
-        
-        .ms-forms-info {
-            background: #f3f6ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 1000px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            border-left: 4px solid var(--ms-blue);
-        }
-        
-        .ms-forms-info h2 {
-            color: var(--ms-blue);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .ms-forms-info p {
-            margin-bottom: 15px;
-            color: #323130;
-        }
-        
-        .ms-forms-info a {
-            display: inline-block;
-            background: var(--ms-blue);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            transition: background 0.3s;
-        }
-        
-        .ms-forms-info a:hover {
-            background: #106ebe;
-        }
-        
-        .form-link {
-            display: block;
-            text-align: center;
-            margin-top: 15px;
-            color: var(--ms-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .form-link:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
-    <div class="ms-forms-info">
-        <h2><i class="fab fa-microsoft"></i> Formulario con Microsoft Forms</h2>
-        <p>Este formulario está configurado para enviar respuestas directamente a Microsoft Forms.</p>
-        <p>Todas las respuestas se recopilarán de manera masiva y organizada en una hoja de Excel.</p>
-        <a href="https://forms.office.com/r/Njy24pD2nZ" target="_blank">Ver formulario en Microsoft Forms</a>
-    </div>
-
     <div class="container">
         <header>
             <div class="logo">HACKATON 2025</div>
@@ -439,38 +377,41 @@
                 <div class="form-container">
                     <h2>Formulario de Registro</h2>
                     
-                    <!-- FORMULARIO CON MICROSOFT FORMS -->
-                    <form action="https://forms.office.com/r/Njy24pD2nZ" method="GET" target="_blank" id="hackatonForm">
-                        <input type="hidden" name="origin" value="lprLink">
+                    <!-- FORMULARIO CON FORMSUBMIT -->
+                    <form action="https://formsubmit.co/hackaton2025_coe@hotmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nuevo registro para HACKATON 2025">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
                         
                         <div class="form-group">
                             <label for="fullName">Nombre completo <span class="required">*</span></label>
-                            <input type="text" id="fullName" name="entry.123456789" required>
+                            <input type="text" id="fullName" name="Nombre completo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Correo electrónico <span class="required">*</span></label>
-                            <input type="email" id="email" name="entry.987654321" required>
+                            <input type="email" id="email" name="Correo electrónico" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Teléfono de contacto <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="entry.192837465" required>
+                            <input type="tel" id="phone" name="Teléfono" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="document">Número de documento de identidad <span class="required">*</span></label>
-                            <input type="text" id="document" name="entry.564738291" required>
+                            <input type="text" id="document" name="Documento de identidad" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamName">Nombre del equipo <span class="required">*</span></label>
-                            <input type="text" id="teamName" name="entry.102938475" required>
+                            <input type="text" id="teamName" name="Nombre del equipo" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="teamSize">Número de integrantes (incluyéndote) <span class="required">*</span></label>
-                            <select id="teamSize" name="entry.657483920" required>
+                            <select id="teamSize" name="Número de integrantes" required>
                                 <option value="">Seleccione la cantidad</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -484,9 +425,9 @@
                             <label>Integrantes del equipo</label>
                             <div id="teamMembers" class="team-members">
                                 <div class="member">
-                                    <input type="text" placeholder="Nombre completo" name="entry.111111111" required>
-                                    <input type="email" placeholder="Correo electrónico" name="entry.222222222" required>
-                                    <input type="tel" placeholder="Teléfono" name="entry.333333333">
+                                    <input type="text" placeholder="Nombre completo" name="Integrante 1 Nombre" required>
+                                    <input type="email" placeholder="Correo electrónico" name="Integrante 1 Email" required>
+                                    <input type="tel" placeholder="Teléfono" name="Integrante 1 Teléfono">
                                     <button type="button" class="btn btn-remove">Eliminar</button>
                                 </div>
                             </div>
@@ -496,29 +437,25 @@
                         
                         <div class="form-group">
                             <label for="experience">Describe brevemente tu experiencia en hackathones o competencias similares</label>
-                            <textarea id="experience" name="entry.444444444" rows="4"></textarea>
+                            <textarea id="experience" name="Experiencia" rows="4"></textarea>
                         </div>
                         
                         <div class="form-group">
                             <label for="skills">Habilidades técnicas principales de tu equipo</label>
-                            <textarea id="skills" name="entry.555555555" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
+                            <textarea id="skills" name="Habilidades técnicas" rows="4" placeholder="Ej: Desarrollo web, machine learning, diseño UX/UI, etc."></textarea>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="entry.666666666" required>
+                            <input type="checkbox" id="terms" name="Acepta términos" required>
                             <label for="terms">Acepto los términos y condiciones del evento <span class="required">*</span></label>
                         </div>
                         
                         <div class="checkbox-group">
-                            <input type="checkbox" id="privacy" name="entry.777777777" required>
+                            <input type="checkbox" id="privacy" name="Acepta privacidad" required>
                             <label for="privacy">Acepto la política de privacidad y el tratamiento de mis datos <span class="required">*</span></label>
                         </div>
                         
                         <button type="submit" class="btn btn-submit">Enviar Registro</button>
-                        
-                        <a href="https://forms.office.com/r/Njy24pD2nZ" target="_blank" class="form-link">
-                            ¿Prefieres llenar el formulario directamente en Microsoft Forms?
-                        </a>
                     </form>
                 </div>
             </div>
@@ -530,7 +467,7 @@
     </div>
 
     <div id="notification" class="notification">
-        ¡Redirigiendo a Microsoft Forms! Completa el formulario allí para finalizar tu registro.
+        ¡Formulario enviado con éxito! Revisaremos tu información y te contactaremos pronto.
     </div>
 
     <script>
@@ -539,7 +476,6 @@
             const teamMembersContainer = document.getElementById('teamMembers');
             const addMemberButton = document.getElementById('addMember');
             const notification = document.getElementById('notification');
-            const hackatonForm = document.getElementById('hackatonForm');
             let memberCount = 1;
             
             // Función para actualizar los campos de integrantes según la selección
@@ -575,9 +511,9 @@
                 const memberDiv = document.createElement('div');
                 memberDiv.className = 'member';
                 memberDiv.innerHTML = `
-                    <input type="text" placeholder="Nombre completo" name="entry.${888888880 + memberCount}" required>
-                    <input type="email" placeholder="Correo electrónico" name="entry.${999999990 + memberCount}" required>
-                    <input type="tel" placeholder="Teléfono" name="entry.${101010100 + memberCount}">
+                    <input type="text" placeholder="Nombre completo" name="Integrante ${memberCount} Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" name="Integrante ${memberCount} Email" required>
+                    <input type="tel" placeholder="Teléfono" name="Integrante ${memberCount} Teléfono">
                     <button type="button" class="btn btn-remove">Eliminar</button>
                 `;
                 
@@ -600,7 +536,7 @@
             });
             
             // Manejar el envío del formulario
-            hackatonForm.addEventListener('submit', function(e) {
+            document.querySelector('form').addEventListener('submit', function(e) {
                 // Mostrar notificación
                 notification.classList.add('show');
                 
